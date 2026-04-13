@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Bindery</Name>
+  <Repository>ghcr.io/vavallee/bindery:latest</Repository>
+  <Registry>https://ghcr.io</Registry>
+  <Network>bridge</Network>
+  <MyIP></MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/vavallee/bindery/issues</Support>
+  <Project>https://github.com/vavallee/bindery</Project>
+  <Overview>Automated book download manager for Usenet and Torrents. Monitor authors, search indexers, download, and organize your library.</Overview>
+  <Category>Downloaders:</Category>
+  <WebUI>http://[IP]:[PORT:8787]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/dginther/Runraid-bindery/main/templates/bindery.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/vavallee/bindery/main/.github/assets/logo.png</Icon>
+  <ExtraParams></ExtraParams>
+  <PostArgs></PostArgs>
+  <CPUset></CPUset>
+  <DateInstalled></DateInstalled>
+  <DonateText></DonateText>
+  <DonateLink></DonateLink>
+  <Requires>/config, /books, /downloads</Requires>
+
+  <Config Name="WebUI Port" Target="8787" Default="8787" Mode="tcp" Description="Bindery web interface port" Type="Port" Display="always" Required="true" Mask="false">8787</Config>
+
+  <Config Name="AppData" Target="/config" Default="/mnt/user/appdata/bindery" Mode="rw" Description="Bindery configuration and SQLite database path" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/bindery</Config>
+  <Config Name="Books Library" Target="/books" Default="/mnt/user/media/books" Mode="rw" Description="Imported ebook library path" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/media/books</Config>
+  <Config Name="Downloads" Target="/downloads" Default="/mnt/user/downloads" Mode="rw" Description="Completed downloads path visible to Bindery" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/downloads</Config>
+
+  <Config Name="Log Level" Target="BINDERY_LOG_LEVEL" Default="info" Description="Logging level: debug, info, warn, error" Type="Variable" Display="advanced" Required="false" Mask="false">info</Config>
+  <Config Name="Database Path" Target="BINDERY_DB_PATH" Default="/config/bindery.db" Description="SQLite database file path inside the container" Type="Variable" Display="advanced" Required="false" Mask="false">/config/bindery.db</Config>
+  <Config Name="Data Directory" Target="BINDERY_DATA_DIR" Default="/config" Description="Config directory for backups and app data" Type="Variable" Display="advanced" Required="false" Mask="false">/config</Config>
+  <Config Name="Download Directory" Target="BINDERY_DOWNLOAD_DIR" Default="/downloads" Description="Where Bindery reads completed downloads" Type="Variable" Display="advanced" Required="false" Mask="false">/downloads</Config>
+  <Config Name="Library Directory" Target="BINDERY_LIBRARY_DIR" Default="/books" Description="Where imported ebooks are stored" Type="Variable" Display="advanced" Required="false" Mask="false">/books</Config>
+  <Config Name="Audiobook Directory" Target="BINDERY_AUDIOBOOK_DIR" Default="" Description="Optional audiobook destination; if empty Bindery uses BINDERY_LIBRARY_DIR" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Download Path Remap" Target="BINDERY_DOWNLOAD_PATH_REMAP" Default="" Description="Optional comma-separated from:to remap pairs for client path translation" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="API Key Seed" Target="BINDERY_API_KEY" Default="" Description="Optional first-run seed key only; ignored after initial bootstrap" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+</Container>
