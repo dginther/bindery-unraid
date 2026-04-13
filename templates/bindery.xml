@@ -12,7 +12,7 @@
   <Overview>Automated book download manager for Usenet and Torrents. Monitor authors, search indexers, download, and organize your library.</Overview>
   <Category>Downloaders:</Category>
   <WebUI>http://[IP]:[PORT:8787]/</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/dginther/Runraid-bindery/main/templates/bindery.xml</TemplateURL>
+  <TemplateURL>https://raw.githubusercontent.com/dginther/unraid-templates/main/templates/bindery.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/vavallee/bindery/main/.github/assets/logo.png</Icon>
   <ExtraParams></ExtraParams>
   <PostArgs></PostArgs>
